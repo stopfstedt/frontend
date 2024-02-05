@@ -118,7 +118,7 @@
     "papaparse": "^5.4.1",
     "pre-commit": "^1.2.2",
     "prettier": "^3.0.3",
-    "query-string": "^8.1.0",
+    "query-string": "^8.2.0",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
     "sass": "^1.70.0",
