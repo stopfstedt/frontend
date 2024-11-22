@@ -10,7 +10,7 @@ module('Acceptance | school/vocabularies', function (hooks) {
 
   hooks.beforeEach(async function () {
     this.school = this.server.create('school');
-    await setupAuthentication({ administeredSchools: [this.school] });
+    await setupAuthentication({ administeredSchools: [this.school] }, true);
 
     this.server.create('vocabulary', {
       school: this.school,

@@ -10,7 +10,7 @@ module('Acceptance | school/competencies', function (hooks) {
 
   hooks.beforeEach(async function () {
     this.school = this.server.create('school');
-    await setupAuthentication({ administeredSchools: [this.school] });
+    await setupAuthentication({ administeredSchools: [this.school] }, true);
 
     const domains = this.server.createList('competency', 2, {
       school: this.school,

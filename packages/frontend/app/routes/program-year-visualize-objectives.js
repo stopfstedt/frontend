@@ -5,9 +5,14 @@ import { all } from 'rsvp';
 export default class ProgramYearVisualizeObjectivesRoute extends Route {
   @service store;
   @service session;
+  @service currentUser;
+  @service router;
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   /**

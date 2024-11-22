@@ -8,10 +8,13 @@ module('Acceptance | curriculum inventory leadership', function (hooks) {
 
   hooks.beforeEach(async function () {
     this.school = this.server.create('school');
-    this.user = await setupAuthentication({
-      school: this.school,
-      administeredSchools: [this.school],
-    });
+    this.user = await setupAuthentication(
+      {
+        school: this.school,
+        administeredSchools: [this.school],
+      },
+      true,
+    );
     const program = this.server.create('program', { school: this.school });
     const users = this.server.createList('user', 4);
     this.report = this.server.create('curriculum-inventory-report', {

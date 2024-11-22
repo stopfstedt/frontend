@@ -30,7 +30,7 @@ module('Acceptance | assign students', function (hooks) {
       roleIds: [4],
       displayName: 'Aardvark',
     });
-    await setupAuthentication({ school: this.school, administeredSchools: [this.school] });
+    await setupAuthentication({ school: this.school, administeredSchools: [this.school] }, true);
   });
 
   test('visiting /admin/assignstudents', async function (assert) {
@@ -48,10 +48,13 @@ module('Acceptance | assign students', function (hooks) {
       roleIds: [4],
       displayName: 'Aardvark',
     });
-    await setupAuthentication({
-      school: this.school,
-      administeredSchools: [this.school, this.school2],
-    });
+    await setupAuthentication(
+      {
+        school: this.school,
+        administeredSchools: [this.school, this.school2],
+      },
+      true,
+    );
     await page.visit();
     assert.strictEqual(page.root.schoolFilter.selectedSchool, this.school.id);
     assert.strictEqual(page.root.schoolFilter.options.length, 2);
@@ -117,10 +120,13 @@ module('Acceptance | assign students', function (hooks) {
       roleIds: [4],
       displayName: 'Zeb',
     });
-    await setupAuthentication({
-      school: this.school,
-      administeredSchools: [this.school, this.school2],
-    });
+    await setupAuthentication(
+      {
+        school: this.school,
+        administeredSchools: [this.school, this.school2],
+      },
+      true,
+    );
     await page.visit();
     assert.strictEqual(page.root.schoolFilter.selectedSchool, this.school.id);
     assert.strictEqual(page.root.schoolFilter.options.length, 2);

@@ -10,7 +10,7 @@ module('Acceptance | pending user updates', function (hooks) {
 
   test('visiting /admin/userupdates', async function (assert) {
     const school = this.server.create('school');
-    await setupAuthentication({ school, administeredSchools: [school] });
+    await setupAuthentication({ school, administeredSchools: [school] }, true);
     await page.visit();
     assert.strictEqual(currentURL(), '/admin/userupdates');
   });

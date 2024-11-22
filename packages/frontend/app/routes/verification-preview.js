@@ -4,6 +4,8 @@ import Route from '@ember/routing/route';
 export default class VerificationPreviewRoute extends Route {
   @service session;
   @service store;
+  @service currentUser;
+  @service router;
 
   async beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');

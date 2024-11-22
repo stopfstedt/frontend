@@ -11,7 +11,7 @@ module('Acceptance | learner-group/bulk-assignment', function (hooks) {
 
   hooks.beforeEach(async function () {
     const school = this.server.create('school');
-    await setupAuthentication({ id: 1, school, administeredSchools: [school] });
+    await setupAuthentication({ id: 1, school, administeredSchools: [school] }, true);
 
     const program = this.server.create('program', {
       title: 'program 0',

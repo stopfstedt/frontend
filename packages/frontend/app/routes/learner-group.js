@@ -4,9 +4,14 @@ import { service } from '@ember/service';
 export default class LearnerGroupRoute extends Route {
   @service session;
   @service dataLoader;
+  @service currentUser;
+  @service router;
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async model(params) {

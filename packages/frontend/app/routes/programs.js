@@ -4,6 +4,8 @@ import { service } from '@ember/service';
 export default class ProgramsRoute extends Route {
   @service session;
   @service store;
+  @service currentUser;
+  @service router;
 
   queryParams = {
     titleFilter: {
@@ -13,6 +15,9 @@ export default class ProgramsRoute extends Route {
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async model() {

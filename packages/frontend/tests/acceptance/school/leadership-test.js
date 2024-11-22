@@ -10,7 +10,7 @@ module('Acceptance | school/leadership', function (hooks) {
 
   hooks.beforeEach(async function () {
     this.school = this.server.create('school');
-    await setupAuthentication({ administeredSchools: [this.school] });
+    await setupAuthentication({ administeredSchools: [this.school] }, true);
 
     this.server.createList('user', 2, {
       directedSchools: [this.school],

@@ -7,6 +7,7 @@ export default class PendingUserUpdatesRoute extends Route {
   @service permissionChecker;
   @service store;
   @service session;
+  @service router;
 
   queryParams = {
     filter: {
@@ -16,6 +17,9 @@ export default class PendingUserUpdatesRoute extends Route {
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async model() {

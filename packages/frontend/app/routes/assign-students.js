@@ -8,6 +8,7 @@ export default class AssignStudentsRoute extends Route {
   @service store;
   @service session;
   @service dataLoader;
+  @service router;
 
   queryParams = {
     query: {
@@ -17,6 +18,9 @@ export default class AssignStudentsRoute extends Route {
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async model() {

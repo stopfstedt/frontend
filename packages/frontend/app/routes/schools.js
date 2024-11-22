@@ -4,9 +4,14 @@ import Route from '@ember/routing/route';
 export default class SchoolsRoute extends Route {
   @service store;
   @service session;
+  @service currentUser;
+  @service router;
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   model() {

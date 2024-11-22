@@ -4,10 +4,16 @@ import { service } from '@ember/service';
 export default class CurriculumInventoryReportRolloverRoute extends Route {
   @service permissionChecker;
   @service session;
+  @service currentUser;
+  @service router;
+
   canUpdate = false;
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async afterModel(report) {

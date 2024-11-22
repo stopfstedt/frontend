@@ -7,9 +7,13 @@ export default class UserRoute extends Route {
   @service iliosConfig;
   @service session;
   @service dataLoader;
+  @service router;
 
   async beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   model(params) {

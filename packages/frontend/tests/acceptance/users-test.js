@@ -12,11 +12,14 @@ module('Acceptance | Users', function (hooks) {
 
   hooks.beforeEach(async function () {
     const school = this.server.create('school');
-    this.user = await setupAuthentication({
-      school: school,
-      campusId: '123',
-      administeredSchools: [school],
-    });
+    this.user = await setupAuthentication(
+      {
+        school: school,
+        campusId: '123',
+        administeredSchools: [school],
+      },
+      true,
+    );
     this.server.createList('user', 90, { schoolId: 1, campusId: '555' });
     this.server.createList('authentication', 90);
   });

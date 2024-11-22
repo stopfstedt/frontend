@@ -4,11 +4,16 @@ import Route from '@ember/routing/route';
 export default class SessionTypeVisualizeVocabulariesRoute extends Route {
   @service store;
   @service session;
+  @service currentUser;
+  @service router;
 
   _dataLoadingPromise = null;
 
   async beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async model(params) {

@@ -8,10 +8,13 @@ module('Acceptance | curriculum inventory nested sequence blocks', function (hoo
 
   hooks.beforeEach(async function () {
     this.school = this.server.create('school');
-    this.user = await setupAuthentication({
-      school: this.school,
-      administeredSchools: [this.school],
-    });
+    this.user = await setupAuthentication(
+      {
+        school: this.school,
+        administeredSchools: [this.school],
+      },
+      true,
+    );
     const program = this.server.create('program', { school: this.school });
     this.academicLevels = this.server.createList('curriculum-inventory-academic-level', 10);
     this.report = this.server.create('curriculum-inventory-report', {

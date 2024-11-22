@@ -13,7 +13,7 @@ module('Acceptance | school/emails', function (hooks) {
       iliosAdministratorEmail: 'admin@school.edu',
       changeAlertRecipients: 'email1@school.edu, email2@school.edu',
     });
-    await setupAuthentication({ administeredSchools: [this.school] });
+    await setupAuthentication({ administeredSchools: [this.school] }, true);
   });
 
   test('view', async function (assert) {

@@ -5,11 +5,16 @@ import { all } from 'rsvp';
 export default class ProgramIndexRoute extends Route {
   @service permissionChecker;
   @service session;
+  @service currentUser;
+  @service router;
 
   canCreate = false;
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   async afterModel(program) {

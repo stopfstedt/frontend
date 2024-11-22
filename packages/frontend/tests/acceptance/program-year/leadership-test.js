@@ -9,10 +9,13 @@ module('Acceptance | Program Year - Leadership', function (hooks) {
 
   hooks.beforeEach(async function () {
     this.school = this.server.create('school');
-    this.user = await setupAuthentication({
-      school: this.school,
-      administeredSchools: [this.school],
-    });
+    this.user = await setupAuthentication(
+      {
+        school: this.school,
+        administeredSchools: [this.school],
+      },
+      true,
+    );
     const users = this.server.createList('user', 4);
     const program = this.server.create('program', {
       school: this.school,

@@ -6,11 +6,16 @@ export default class ProgramYearRoute extends Route {
   @service permissionChecker;
   @service session;
   @service store;
+  @service currentUser;
+  @service router;
 
   canUpdate = false;
 
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
+    if (!this.currentUser.performsNonLearnerFunction) {
+      this.router.replaceWith('/four-oh-four');
+    }
   }
 
   model(params) {
