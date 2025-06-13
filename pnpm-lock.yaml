@@ -568,6 +568,9 @@ importers:
       ember-cli-terser:
         specifier: ^4.0.2
         version: 4.0.2
+      ember-highcharts:
+        specifier: stopfstedt/ember-highcharts#upgrade-to-ember-render-modifiers-v3&path:ember-highcharts
+        version: https://codeload.github.com/stopfstedt/ember-highcharts/tar.gz/d97e74a913c249a1e606952b8b1bc398dfc1e7a2#path:ember-highcharts(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))(highcharts@12.2.0)
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -2226,11 +2229,25 @@ packages:
     resolution: {integrity: sha512-a1OQ+w9vDvMXd9BNA9r779yr8MAPguGaMGbIeTMPWACeWBdD6bACBB5iKE3gNyrJAYKMq2wab6BKmRFS3Qw3hw==}
     engines: {node: 10.* || 12.* || >= 14}
 
+  '@ember/render-modifiers@3.0.0':
+    resolution: {integrity: sha512-gJztS8dI7Jt8ohFQptEDJAgpl9DG84IpqwQoR1JDpVIBy2uLbf8KFD6S3h3LfyMsgJce6G38cOvyQv6BDgcnsA==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@glint/template': ^1.0.2
+      ember-source: '>= 4.0.0'
+    peerDependenciesMeta:
+      '@glint/template':
+        optional: true
+
   '@ember/string@4.0.1':
     resolution: {integrity: sha512-VWeng8BSWrIsdPfffOQt/bKwNKJL7+37gPFh/6iZZ9bke+S83kKqkS30poo4bTGfRcMnvAE0ie7txom+iDu81Q==}
 
   '@ember/test-helpers@5.2.2':
     resolution: {integrity: sha512-Cclqeh0j6RnYvoaElAVC3Nd1fsSUkc3oUTwTsLlNiC3riyPq8lNYxh96VM59/yji2ntrd/cJQ7qhhSZWd6hsEw==}
+
+  '@ember/test-waiters@3.1.0':
+    resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
+    engines: {node: 10.* || 12.* || >= 14.*}
 
   '@ember/test-waiters@4.1.0':
     resolution: {integrity: sha512-qRFA0OumYv7/C3hmx4ETC2dlPzyD549D+naPhcrnV2xCnc3AZlKouWyoFnNF+Cje918kRp9aEefVgV3vmGL5Bg==}
@@ -4852,6 +4869,10 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
+  deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
+
   defaults@1.0.4:
     resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}
 
@@ -5362,6 +5383,13 @@ packages:
     engines: {node: '>= 14.0.0'}
     peerDependencies:
       ember-source: ^3.25.0 || >=4.0.0
+
+  ember-highcharts@https://codeload.github.com/stopfstedt/ember-highcharts/tar.gz/d97e74a913c249a1e606952b8b1bc398dfc1e7a2#path:ember-highcharts:
+    resolution: {path: ember-highcharts, tarball: https://codeload.github.com/stopfstedt/ember-highcharts/tar.gz/d97e74a913c249a1e606952b8b1bc398dfc1e7a2}
+    version: 7.0.0
+    peerDependencies:
+      ember-source: '>= 3.28.0'
+      highcharts: '>= 10.0.0'
 
   ember-in-element-polyfill@1.0.1:
     resolution: {integrity: sha512-eHs+7D7PuQr8a1DPqsJTsEyo3FZ1XuH6WEZaEBPDa9s0xLlwByCNKl8hi1EbXOgvgEZNHHi9Rh0vjxyfakrlgg==}
@@ -6497,6 +6525,9 @@ packages:
 
   heimdalljs@0.2.6:
     resolution: {integrity: sha512-o9bd30+5vLBvBtzCPwwGqpry2+n0Hi6H1+qwt6y+0kwRHGGF8TFIhJPmnuM0xO97zaKrDZMwO/V56fAnn8m/tA==}
+
+  highcharts@12.2.0:
+    resolution: {integrity: sha512-UUN+osTP3aeGc4KmoMuWAjzpKif8GYHFozzYI4O8h1ILGof25M/ZGBpXLvgqf1z0LVh7N9eG7i0HnzMfjcR4nA==}
 
   hmac-drbg@1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==}
@@ -11478,6 +11509,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@ember/render-modifiers@3.0.0(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
+    dependencies:
+      '@babel/core': 7.27.4(supports-color@8.1.1)
+      '@embroider/macros': 1.18.0
+      ember-cli-babel: 8.2.0(@babel/core@7.27.4)
+      ember-modifier-manager-polyfill: 1.2.0(@babel/core@7.27.4)
+      ember-source: 6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+    transitivePeerDependencies:
+      - supports-color
+
   '@ember/string@4.0.1': {}
 
   '@ember/test-helpers@5.2.2(@babel/core@7.27.4)':
@@ -11491,6 +11532,15 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
+      - supports-color
+
+  '@ember/test-waiters@3.1.0':
+    dependencies:
+      calculate-cache-key-for-tree: 2.0.0
+      ember-cli-babel: 7.26.11
+      ember-cli-version-checker: 5.1.2
+      semver: 7.7.2
+    transitivePeerDependencies:
       - supports-color
 
   '@ember/test-waiters@4.1.0':
@@ -14960,6 +15010,8 @@ snapshots:
 
   deep-is@0.1.4: {}
 
+  deepmerge@4.3.1: {}
+
   defaults@1.0.4:
     dependencies:
       clone: 1.0.4
@@ -16041,6 +16093,20 @@ snapshots:
       ember-cli-version-checker: 5.1.2
       ember-source: 6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
     transitivePeerDependencies:
+      - supports-color
+
+  ember-highcharts@https://codeload.github.com/stopfstedt/ember-highcharts/tar.gz/d97e74a913c249a1e606952b8b1bc398dfc1e7a2#path:ember-highcharts(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))(highcharts@12.2.0):
+    dependencies:
+      '@babel/core': 7.27.4(supports-color@8.1.1)
+      '@ember/render-modifiers': 3.0.0(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@ember/test-waiters': 3.1.0
+      '@embroider/addon-shim': 1.10.0
+      decorator-transforms: 2.3.0(@babel/core@7.27.4)
+      deepmerge: 4.3.1
+      ember-source: 6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+      highcharts: 12.2.0
+    transitivePeerDependencies:
+      - '@glint/template'
       - supports-color
 
   ember-in-element-polyfill@1.0.1:
@@ -17740,6 +17806,8 @@ snapshots:
   heimdalljs@0.2.6:
     dependencies:
       rsvp: 3.2.1
+
+  highcharts@12.2.0: {}
 
   hmac-drbg@1.0.1:
     dependencies:
