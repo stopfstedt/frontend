@@ -1,6 +1,5 @@
 import { service } from '@ember/service';
 import Route from '@ember/routing/route';
-import { map } from 'rsvp';
 
 export default class CourseVisualizeVocabularyRoute extends Route {
   @service store;
@@ -15,12 +14,10 @@ export default class CourseVisualizeVocabularyRoute extends Route {
 
   async afterModel(model) {
     const { course, vocabulary } = model;
+    await course.school;
+    await vocabulary.terms;
     const sessions = await course.sessions;
-    return await Promise.all([
-      course.get('school'),
-      vocabulary.terms,
-      map(sessions, (s) => s.terms),
-    ]);
+    await Promise.all(sessions.map(async (s) => await s.terms));
   }
 
   beforeModel(transition) {
